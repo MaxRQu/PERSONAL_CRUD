@@ -51,6 +51,35 @@
                 break;
 
 
+
+            case "guardaryeditar":
+                $datos=$producto->get_producto_x_id($_POST["prod_id"]);
+                if(empty($_POST["prod_id"])){
+                    if(is_array($datos)==true and count($datos)==0){
+                        $producto->insert_producto($_POST["prod_nom"]);
+                    }
+                }else{
+                    $producto->update_producto($_POST["prod_id"],$_POST["prod_nom"]);
+                }
+                break;
+
+
+
+
+            case "mostrar":
+                $datos=$producto->get_producto_x_id($_POST["prod_id"]);
+                if(is_array($datos)==true and count($datos)>0){
+                    foreach($datos as $row){
+                        $ouput["prod_id"] = $row["prod_id"];
+                        $ouput["pro_nom"] = $row["prod_nom"];
+                    }
+                }
+                break;
+
+
+            case "eliminar":
+                $producto->delete_producto($_POST["prod_id"]);
+                break;
     }
 
 ?>

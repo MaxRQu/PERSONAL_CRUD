@@ -27,9 +27,9 @@
             $conectar = parent::Conexion();//"parent" recordar que para acceder a una constante o metodo de una clase padre, la palabra reservada es "parent" este nos sirve
             //para llmarla desde una clase extendida
             parent::set_names();//este es para que no tengamos problemas con tildes o "ñ"
-            $sql = " SELECT * FROM tm_productos WHERE prod_id = ?"; //hacemos la sentencia
+            $sql = " SELECT * FROM tm_producto WHERE prod_id = ?"; //hacemos la sentencia
             $sql = $conectar->prepare($sql);//preparamos la sentencia, pero antes ddeclaramos un variable para que se almacene dicho sentencia y conectamos medient la variable que conecta con la BD
-            $sql->bindValue(1,$prod_id);//este es para obtener el parametro que se esta pidiendo para luego almacenarlo en 1 y que se muestre como una condicion  
+            $sql->bindValue(1, $prod_id);//este es para obtener el parametro que se esta pidiendo para luego almacenarlo en 1 y que se muestre como una condicion  
             $sql->execute();//que se ejecute dicha variable con sus metodos o funciones
             return $resultado = $sql->fetchAll();  //y que nos retome dicha data en este caso todo en una variable
         }
@@ -67,7 +67,7 @@
         }
 
 
-        public function update_prodcuto($prod_id, $prod_nom){
+        public function update_producto($prod_id, $prod_nom){
             $conectar = parent::Conexion();
             parent::set_names();
             $sql = "UPDATE tm_prodcto

@@ -3,7 +3,7 @@
     class Conectar{
         protected $dbh;
 
-        protected function Conexion(){
+        protected function conexion(){
 
             try{
 
